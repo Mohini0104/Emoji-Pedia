@@ -7,7 +7,8 @@ const emojiDict = {
   "🙂": "SLIGHTLY SMILING FACE",
   "🙈": "SEE-NO-EVIL MONKEY",
   "💇🏼‍♀️": "WOMAN GETTING HAIRCUT: MEDIUM-LIGHT SKIN TONE",
-  "👨🏿‍💻": "MAN TECHNOLOGIST: DARK SKIN TONE"
+  "👨🏿‍💻": "MAN TECHNOLOGIST: DARK SKIN TONE",
+  "🙏": "Folded Hands"
 };
 const emojisWeKnow = Object.keys(emojiDict);
 
@@ -18,7 +19,7 @@ export default function App() {
     var meaning = emojiDict[userInput];
 
     if (meaning === undefined) {
-      meaning = "we dont have this in our database";
+      meaning = "Sorry,we dont have this in our database";
     }
     setMeaning(meaning);
   }
@@ -30,11 +31,11 @@ export default function App() {
   return (
     <div className="App" style={{ margin: "10%" }}>
       <h1 style={{ color: color }}>Emoji-pedia</h1>
-      <input onChange={emojiClickHandler} />
+      <input onChange={emojiInputHandler} />
       <div
         style={{ backgroundColor: "white", width: "50%", margin: "3% auto" }}
       >
-        Meanings: {meaning}
+        {meaning}
       </div>
       <h3>Emojis We Know</h3>
       {emojisWeKnow.map((emoji) => {
